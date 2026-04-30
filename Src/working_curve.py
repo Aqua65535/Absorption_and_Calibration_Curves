@@ -1,6 +1,3 @@
-import matplotlib
-matplotlib.use('Agg')
-
 import matplotlib.pyplot as plt
 import numpy as np
 import gc
@@ -72,7 +69,7 @@ def run_working_curve(substance: str, concentrations_str: str, absorbances_str: 
         plt.axvline(x=cx, color='purple', linestyle='--', alpha=0.7)
         plt.plot(cx, Ax, 's', color='purple', markersize=10,
                  label=f'未知样: A={Ax:.3f}\nc={cx:.4f}')
-
+        """
         # 标注数据点
         for i in range(len(concentrations)):
             plt.annotate(f'({concentrations[i]:.3f}, {absorbances[i]:.3f})',
@@ -80,6 +77,8 @@ def run_working_curve(substance: str, concentrations_str: str, absorbances_str: 
                          textcoords="offset points",
                          xytext=(5, 5),
                          ha='left', fontsize=8)
+                         
+        """
 
         # 设置坐标轴
         plt.xlabel(f'{substance} 的浓度(mg/mL)', fontsize=12)
@@ -92,7 +91,7 @@ def run_working_curve(substance: str, concentrations_str: str, absorbances_str: 
         plt.grid(True, linestyle='--', alpha=0.7)
         plt.legend(loc='best')
         plt.tight_layout()
-        plt.figtext(0.5, 0.01, f'图2 - {substance} 的工作曲线', ha='center', fontsize=10)
+        plt.figtext(0.5, 0.01, f'图2 - {substance}的工作曲线', ha='center', fontsize=10)
 
         # 保存图片
         plt.savefig(f'{substance}_working_curve.png', dpi=150, bbox_inches='tight')

@@ -242,7 +242,7 @@ class MainApplication:
         substance_entry.grid(row=0, column=1, pady=10, padx=10)
 
         # 浓度数据
-        tk.Label(main_frame, text="浓度(mg/mL):", font=("微软雅黑", 11)).grid(row=1, column=0, sticky="nw", pady=10)
+        tk.Label(main_frame, text="已知样浓度(mg/mL):", font=("微软雅黑", 11)).grid(row=1, column=0, sticky="nw", pady=10)
         concentration_text = scrolledtext.ScrolledText(main_frame, height=5, width=40, font=("Consolas", 10))
         concentration_text.grid(row=1, column=1, pady=10, padx=10)
         tk.Label(main_frame, text="(空格分隔，第一项必须为0，如: 0 0.1 0.2)", font=("微软雅黑", 9), fg="gray").grid(row=2,
@@ -250,14 +250,14 @@ class MainApplication:
                                                                                                            sticky="w")
 
         # 吸光度数据
-        tk.Label(main_frame, text="吸光度A:", font=("微软雅黑", 11)).grid(row=3, column=0, sticky="nw", pady=10)
+        tk.Label(main_frame, text="已知样吸光度A:", font=("微软雅黑", 11)).grid(row=3, column=0, sticky="nw", pady=10)
         absorbance_text = scrolledtext.ScrolledText(main_frame, height=5, width=40, font=("Consolas", 10))
         absorbance_text.grid(row=3, column=1, pady=10, padx=10)
         tk.Label(main_frame, text="(空格分隔，第一项必须为0，与浓度一一对应)", font=("微软雅黑", 9), fg="gray").grid(row=4, column=1,
                                                                                                       sticky="w")
 
         # 未知样品吸光度
-        tk.Label(main_frame, text="未知样品吸光度:", font=("微软雅黑", 11)).grid(row=5, column=0, sticky="w", pady=10)
+        tk.Label(main_frame, text="未知样吸光度:", font=("微软雅黑", 11)).grid(row=5, column=0, sticky="w", pady=10)
         Ax_entry = tk.Entry(main_frame, font=("微软雅黑", 11), width=20)
         Ax_entry.grid(row=5, column=1, sticky="w", pady=10, padx=10)
 

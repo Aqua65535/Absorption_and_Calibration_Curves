@@ -1,6 +1,3 @@
-import matplotlib
-matplotlib.use('Agg')
-
 import matplotlib.pyplot as plt
 import numpy as np
 import gc
@@ -41,10 +38,11 @@ def run_absorption_curve(substance: str, wavelengths_str: str, absorbances_str: 
         max_index = np.argmax(absorbances)
         lambda_max = wavelengths[max_index]
         a_max = absorbances[max_index]
-        plt.plot(lambda_max, a_max, 'ro', markersize=10, markeredgewidth=2,
+        plt.plot(lambda_max, a_max, 'ro', markersize=8, markeredgewidth=2,
                  label=f'$λ_{{\\max}}$ = {lambda_max} nm')
 
-        # 给每个数据点标注坐标值
+        """        
+        # 给最高的数据点标注坐标值
         for i in range(len(wavelengths)):
             if i == max_index:
                 plt.annotate(f'({wavelengths[i]}, {absorbances[i]})',
@@ -52,6 +50,8 @@ def run_absorption_curve(substance: str, wavelengths_str: str, absorbances_str: 
                              textcoords="offset points",
                              xytext=(5, 5),
                              ha='left', fontsize=8)
+                             
+        """
 
         # 设置坐标轴
         plt.xlabel('波长λ(nm)', fontsize=12)
@@ -69,7 +69,7 @@ def run_absorption_curve(substance: str, wavelengths_str: str, absorbances_str: 
         plt.tight_layout()
 
         # 标题在下面
-        plt.figtext(0.5, 0.01, f'图1 - {substance} 的吸收曲线', ha='center', fontsize=10)
+        plt.figtext(0.5, 0.01, f'图1 - {substance}的吸收曲线', ha='center', fontsize=10)
 
         # 保存图片
         plt.savefig(f'{substance}_absorption_curve.png', dpi=150, bbox_inches='tight')
